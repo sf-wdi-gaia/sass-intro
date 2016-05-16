@@ -56,7 +56,7 @@ This is basically the bootstrap-snippets HTML5 template, with a few important ad
         <h1 class="text-center">Hello World</h1>
 
         <!-- jQuery -->
-        <script src="jquery/jquery.min.js"></script>
+        <script src="jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     </body>
