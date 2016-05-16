@@ -3,30 +3,26 @@
 
 ## What is Sass?
 - Syntactically Awesome Style Sheets
-- Pre-processor for CSS, making it easier to manage CSS
+- Written and maintained by Zurb, who also own the [Foundation framework](http://foundation.zurb.com/)
+- Sass is a pre-processor for CSS, which means you write code in Sass and let Sass manage your CSS for you.
 - Adds the power of math, variables, logic and more
-- 2 syntaxes available (.sass and .scss with Compass)
-- Makes writing CSS funner!
+- There are 2 syntaxes available (.sass and .scss with Compass)
+- Makes writing CSS even _MORE_ fun than it already is!
 
-## Install Sass
+## STEP 1. Set Up your Sass Environment - Catch Up (5 min)
 
-To begin, we need to `cd` into the directory where we want to work:
+To begin, we need to `cd` into the directory where we want to work. Navigate to your development directory of choice and let's set things up there:
 
 ``` bash
-cd [PATH_TO_DEV]/
+mkdir sass-practice
+cd /sass-practice
 
 ```
 
-There are many different ways to install Sass. In this class we've already learned a bit about Bootstrap and we haven't looked at Ruby yet, so we're going to use bower to install.
+There are many different ways to install Sass. In this cohort we've already learned a bit about Twitter's Bootstrap framework (Yes, Twitter owns Bootstrap...) and we haven't looked at Ruby yet, so we're going to use a tool called `bower` to install. ([Bower](http://bower.io/) is a package manager that will help us install Sass with Bootstrap. We'll be using bower more in the coming weeks.)
 
-Bower is a package manager that will help us install Sass with Bootstrap. It's a good idea to run this command even if you already have Bower, because this will update your code to the latest version.
+Bootstrap maintains an open-source GitHub repository with instructions to create a `bootstrap-sass` starter project in a few different development environments. You can read about it [on Bootstrap's website](http://getbootstrap.com/css/#sass), or [visit the repo](https://github.com/twbs/bootstrap-sass) if you want, but all we have to do to get the code today is run this from the Terminal:
 
-``` bash
-npm install -g bower
-
-```
-
-Now we can use `bower` to install bootstrap-sass.
 
 ``` bash
 bower install bootstrap-sass
@@ -35,9 +31,11 @@ bower install bootstrap-sass
 
 This will create a `bower_components` directory with a bunch of contents in it, including jquery and bootstrap.
 
-### Make your index.html
+## STEP 2. Set Up your Starter Code - Catch Up (10 min)
 
-This is basically the bootstrap-snippets HTML5 template, with a few important adjustments:
+Now all we need is a webpage. Let's create an `index.html` at the root level.
+
+(This is basically the bootstrap-snippets HTML5 template, with a few important adjustments)
 
 ``` html
 <!DOCTYPE html>
@@ -64,9 +62,11 @@ This is basically the bootstrap-snippets HTML5 template, with a few important ad
 
 ```
 
-_This won't look like much yet if you run it in the browser._
+_This won't look like much yet if you open it in the browser._
 
-### Create your .scss file and your .css file
+
+#### Create your .scss file and your .css file
+Before we start coding, we need to create a custom Sass file and a CSS file for it to write to.
 
 ``` bash
 
@@ -77,7 +77,9 @@ touch stylesheets/app.css
 
 ```
 
-### Compiling SCSS to CSS
+#### Compiling SCSS to CSS
+
+Making sure you're in the `stylesheets` directory, we're ready to start Sass!
 
 ``` bash
 sass --watch app.scss:app.css
@@ -88,15 +90,29 @@ sass --watch app.scss:app.css
 
 #### Example 0. Our first Sass
 
+Open the file `app.scss` and add the following line of code:
+
 ``` css
-
-
+@import "bootstrap";
 
 ```
 
-If this runs with no errors you can see the Bootstrap CSS written in app.css. Refresh your index.html to confirm the centered text and font.
+If this runs with no errors you should now be able to see the Bootstrap CSS written out in app.css. Refresh your browser to confirm the font has changed and the text is now centered.
 
-Now let's learn and play. _NOTE: The examples below You will need to figure out how to refactor them with Bootstrap classes and then add the necessary HTML to make these examples do anything useful._
+**Great!** Now let's get some more content so we can start playing with it.
+
+Follow this [link to Bootstrap's Jumbotron sample code](http://getbootstrap.com/examples/jumbotron/) and inspect source _opt + cmd + U_
+
+Copy all the code beginning with `<nav class="navbar navbar-inverse navbar-fixed-top">` and ending with `</div> <!-- /container -->` --at the time this module was written, that would be lines 36 through 95-- and paste it into our `index.html` file instead of `<h1 class="text-center">Hello World</h1>`
+
+
+# The Lesson.
+
+The following examples were taken from Zurb's own training classes, which I took a few years ago. Surely their lessons have evolved, but I've found the examples below to be useful both for learning and for setting up a cool development environment.
+
+#### The Problem.
+
+The following examples were written targeting Zurb's own framework, Foundation, which uses different class names, etc, etc. So as we walk through these examples one at a time, let's figure out how to take the information given and try to apply it to our own codebase. It's not about a _right_ or _wrong_ way of doing things-- _it's about the struggle!_
 
 ## What makes up Sass?
 
@@ -150,7 +166,7 @@ Now let's learn and play. _NOTE: The examples below You will need to figure out 
 ```
 
 #### Example 2. Sass Nesting with Symbol Selectors:
-``` css
+``` scss
 .class-name {
     > h2 {
         line-height: 1.5em;
@@ -653,12 +669,16 @@ body a {
 - Keep CSS organized
 - Compiles into a single stylesheet
 
-``` css
+Syntax for our .scss file:
+
+``` scss
 @import “stylesheet”;
 @import “stylesheet2”;
 @import “stylesheet3”;
 
 ```
+
+If we have the following file structure, where `parts/` is a directory containing a number of partial stylesheets and `app.scss` is a sibling to the `parts/` directory...
 
 ``` bash
 parts/
@@ -674,6 +694,8 @@ parts/
 
 app.scss
 ```
+
+...we would write the following in our `app.scss` in order to pull in all our partial stylesheets:
 
 ``` css
 /* app.scss */
@@ -691,7 +713,9 @@ app.scss
 ```
 
 
+## Conclusion
 
+In conclusion, Sass is a great tool to help manage your CSS and make it more dynamic and powerful. Although it is not a requirement of this class to learn Sass, I hope some of you love it as much as I do. At very least, you've got this documentation to develop one more tool in your kit.
 
 
 
