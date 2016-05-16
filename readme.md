@@ -86,6 +86,14 @@ sass --watch app.scss:app.css
 
 ```
 
+#### Example 0. Our first Sass
+
+``` css
+
+
+
+```
+
 If this runs with no errors you can see the Bootstrap CSS written in app.css. Refresh your index.html to confirm the centered text and font.
 
 Now let's learn and play. _NOTE: The examples below You will need to figure out how to refactor them with Bootstrap classes and then add the necessary HTML to make these examples do anything useful._
@@ -107,7 +115,7 @@ Now let's learn and play. _NOTE: The examples below You will need to figure out 
 - Be careful not to over-nest
 
 #### Example 1. Sass Basic Nesting:
-``` css
+``` scss
 .class-name {
     background-color: #eee;
     h1 {
