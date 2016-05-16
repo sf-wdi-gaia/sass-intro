@@ -1,0 +1,95 @@
+@import "bootstrap";
+
+/* NOTE:  Variables, mixins, functions, etc need to be defined before you can call them. */
+
+/* Example 5: Sass Variables */
+$main-color: #1d96bc;
+
+$another-color: complement(lighten(green, 0.5));
+
+/* Example 7: Sass Text String */
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Example 8: Sass Variable with Interpolation Braces */
+$small: "only screen and (max-width: 768px)";
+
+/* Example 9: Sass Mixins */
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/* Example 11: Sassy Logic with Mixins */
+@mixin btn($bg) {
+    $bg-lightness: lightness($bg);
+    background-color: $bg;
+
+    @if $bg-lightness > 70% { color: #333333; } 
+    @else { color: #ffffff; }
+}
+
+/* Example 12: Sass function */
+$em-base: 16px;
+
+@function emCalc($px-width) {
+    @return $px-width / $em-base * 1em;
+}
+
+
+/* Example 1:  Sass Basic Nesting */
+
+.col-md-4 {
+    background-color: beige;
+    padding: 1.5em;
+    margin: 0.5em;
+    h2 {
+        font-size: emCalc(22px);
+        color: #333;
+        a {
+            color: $main-color; 
+            text-decoration: underline;
+        }
+    }
+    .btn-default {
+    background-color: lightgreen;
+    margin-bottom: 0.5em;
+    }
+}
+
+
+/* Example 4: Sass media bubbling */
+nav {
+    margin: 4px;
+    /* Example 8: interpolation */
+    @media #{$small} {
+        margin: 20px;
+    }
+}
+
+
+
+/* Example 7 */
+body {
+    font-family: $font-stack;
+}
+
+
+
+.jumbotron {
+    h1 { 
+        color: $main-color;
+        @media #{$small} {
+            padding: 1em;
+        }
+    }
+    @include btn($another-color);
+}
+
+.btn {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    @include border-radius(15px);
+}
