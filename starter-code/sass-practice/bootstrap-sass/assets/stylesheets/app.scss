@@ -1,0 +1,18 @@
+@import "bootstrap";
+
+.col-md-4 {
+    background-color: beige;
+    padding: 0.5 em;
+    h2 {
+        font-size: 1.4em;
+        color: #333;
+        a {
+            color: #02f; 
+            text-decoration: underline;
+        }
+    }
+    .btn-default {
+    background-color: lightgreen;
+    margin-bottom: 0.5em;
+    }
+}
